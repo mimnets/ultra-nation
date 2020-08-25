@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Country from './components/Country/Country';
+import CountryAdded from './components/CountryAdded/CountryAdded';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -25,6 +26,7 @@ function App() {
     <div className="App">
       <h1>Country loaded: {countries.length}</h1>
       <h4>County addedd : {selectedCountries.length}</h4>
+      <CountryAdded country={selectedCountries}></CountryAdded>
       <ul>
         {
           countries.map(country => <Country country ={country} handleAddCountry={handleAddCountry} key={country.alpha3Code}></Country>)
