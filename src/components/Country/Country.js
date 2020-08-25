@@ -12,7 +12,7 @@ const Country = (props) => {
             <img style={flagStyle} src={flag} alt=""/>
             <p>Population : {population}</p>
             <p><small>Region : {region}</small></p>
-            <button onClick={handleAddCountry}>Add Country</button>
+            <button onClick={() => handleAddCountry(props.country)}>Add Country</button>
         </div>
     );
 };
