@@ -14,6 +14,8 @@ function App() {
     // .then(data=>console.log(data))
   }, [])
   
+  const handleAddCountry = () => {console.log('country addedd')}
+
   return (
     <div className="App">
       <h1>Country loaded: {countries.length}</h1>
