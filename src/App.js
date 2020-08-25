@@ -5,6 +5,7 @@ import Country from './components/Country/Country';
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [selectedCountries, setSelectedCountries] = useState([]);
 
   useEffect(()=>{
     fetch('https://restcountries.eu/rest/v2/all')
@@ -15,12 +16,15 @@ function App() {
   }, [])
   
   const handleAddCountry = (country) => {
-    console.log('country addedd', country)
+    // console.log('country addedd', country)
+    const newSelectedCountries = [...selectedCountries, country];
+    setSelectedCountries(newSelectedCountries);
   }
 
   return (
     <div className="App">
       <h1>Country loaded: {countries.length}</h1>
+      <h4>County addedd : {selectedCountries.length}</h4>
       <ul>
         {
           countries.map(country => <Country country ={country} handleAddCountry={handleAddCountry} key={country.alpha3Code}></Country>)
