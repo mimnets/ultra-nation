@@ -6,9 +6,14 @@ function App() {
   const [countries, setCountries] = useState([]);
 
   useEffect(()=>{
-    fetch('https://restcountries.eu/rest/v2/ball')
+    fetch('https://restcountries.eu/rest/v2/all')
     .then(res => res.json())
-    .then(data=>setCountries(data))
+    .then(data=>{
+      setCountries(data);
+      console.log(data);
+      const names = data.map(country => country.name);
+      console.log(names);
+    })
     .catch(error=> console.log(error))
     // .then(data=>console.log(data))
   }, [])
@@ -16,6 +21,11 @@ function App() {
   return (
     <div className="App">
       <h1>Country loaded: {countries.length}</h1>
+      <ul>
+        {
+          countries.map(country => <li>{country.name}</li>)
+        }
+      </ul>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
