@@ -14,14 +14,16 @@ function App() {
     // .then(data=>console.log(data))
   }, [])
   
-  const handleAddCountry = () => {console.log('country addedd')}
+  const handleAddCountry = (country) => {
+    console.log('country addedd', country)
+  }
 
   return (
     <div className="App">
       <h1>Country loaded: {countries.length}</h1>
       <ul>
         {
-          countries.map(country => <Country country ={country} key={country.alpha3Code}></Country>)
+          countries.map(country => <Country country ={country} handleAddCountry={handleAddCountry} key={country.alpha3Code}></Country>)
         }
       </ul>
       <header className="App-header">
